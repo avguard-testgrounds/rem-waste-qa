@@ -11,7 +11,7 @@ interface Step1Props {
   initialPostcode: string;
   initialAddressId: string | null;
   initialManualAddress: ManualAddress | null;
-  onComplete: (postcode: string, addressId: string | null, manual: ManualAddress | null) => void;
+  onComplete: (postcode: string, addressId: string | null, manual: ManualAddress | null, addressDisplay: string) => void;
 }
 
 const EMPTY_MANUAL: ManualAddress = { line1: '', line2: '', city: '', postcode: '' };
@@ -25,10 +25,10 @@ export default function Step1Postcode({
   const [apiError, setApiError] = useState<string | null>(null);
   const [addresses, setAddresses] = useState<Address[] | null>(null);
   const [selectedId, setSelectedId] = useState<string | null>(initialAddressId);
+  const [selectedDisplay, setSelectedDisplay] = useState<string>('');
   const [showManual, setShowManual] = useState(!!initialManualAddress);
   const [manual, setManual] = useState<ManualAddress>(initialManualAddress ?? EMPTY_MANUAL);
   const [lastQueried, setLastQueried] = useState(initialPostcode);
-
   function validate(value: string): string | null {
     if (!value.trim()) return 'Please enter a postcode';
     if (!isValidUKPostcode(value)) return 'Please enter a valid UK postcode (e.g. SW1A 1AA)';
@@ -61,13 +61,13 @@ export default function Step1Postcode({
   }
 
   const canContinue = !!selectedId || !!(showManual && manual.line1.trim() && manual.city.trim());
-
   function handleContinue() {
     if (!canContinue) return;
     if (showManual && manual.line1.trim() && manual.city.trim()) {
-      onComplete(manual.postcode || lastQueried, null, { ...manual, postcode: manual.postcode || lastQueried });
+      const pc = manual.postcode || lastQueried;
+      onComplete(pc, null, { ...manual, postcode: pc }, [manual.line1, manual.line2, manual.city].filter(Boolean).join(', '));
     } else {
-      onComplete(lastQueried, selectedId, null);
+      onComplete(lastQueried, selectedId, null, selectedDisplay);
     }
   }
 
@@ -109,7 +109,7 @@ export default function Step1Postcode({
               {addresses.map(addr => (
                 <li key={addr.id}>
                   <button
-                    onClick={() => { setSelectedId(addr.id); setShowManual(false); }}
+                    onClick={() => { setSelectedId(addr.id); setSelectedDisplay(`${addr.line1}, ${addr.city}`); setShowManual(false); }}
                     className={[
                       'w-full px-4 py-3 text-left text-sm transition-colors',
                       selectedId === addr.id ? 'bg-blue-50 font-medium text-blue-700' : 'hover:bg-gray-50 text-gray-700',
