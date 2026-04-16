@@ -1,6 +1,8 @@
 // playwright.config.ts
 import { defineConfig, devices } from '@playwright/test';
 
+const BASE_URL = process.env.BASE_URL || 'http://localhost:3000';
+
 export default defineConfig({
   testDir: './tests',
   timeout: 30_000,
@@ -17,11 +19,19 @@ export default defineConfig({
   ],
 
   use: {
-    baseURL: process.env.BASE_URL || 'https://rem-waste-qa-snowy.vercel.app/',
+    baseURL: BASE_URL,
     trace: 'on-first-retry',
     screenshot: 'only-on-failure',
     video: 'retain-on-failure',
   },
+
+  // Start dev server automatically when testing locally (not against a remote URL)
+  webServer: BASE_URL.startsWith('http://localhost') ? {
+    command: 'npm run dev',
+    url: BASE_URL,
+    reuseExistingServer: false,
+    timeout: 30_000,
+  } : undefined,
 
   projects: [
     { name: 'chromium', use: { ...devices['Desktop Chrome'] } },

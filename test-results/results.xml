@@ -1,0 +1,72 @@
+<testsuites id="" name="" tests="31" failures="0" skipped="0" errors="0" time="23.384905999999997">
+<testsuite name="api\all-endpoints.spec.ts" timestamp="2026-04-16T21:03:59.459Z" hostname="chromium" tests="17" failures="0" skipped="0" time="0.543" errors="0">
+<testcase name="@regression API — /api/postcode/lookup › SW1A 1AA returns 200 with 12 addresses" classname="api\all-endpoints.spec.ts" time="0.129">
+</testcase>
+<testcase name="@regression API — /api/postcode/lookup › EC1A 1BB returns 200 with 0 addresses" classname="api\all-endpoints.spec.ts" time="0.018">
+</testcase>
+<testcase name="@regression API — /api/postcode/lookup › missing postcode returns 400" classname="api\all-endpoints.spec.ts" time="0.034">
+</testcase>
+<testcase name="@regression API — /api/postcode/lookup › invalid postcode format returns 422" classname="api\all-endpoints.spec.ts" time="0.025">
+</testcase>
+<testcase name="@regression API — /api/postcode/lookup › XSS input returns 422" classname="api\all-endpoints.spec.ts" time="0.018">
+</testcase>
+<testcase name="@regression API — /api/postcode/lookup › BS1 4DJ — first call returns 500, second call returns 200 with 3 addresses" classname="api\all-endpoints.spec.ts" time="0.031">
+</testcase>
+<testcase name="@regression API — /api/waste-types › general waste returns { ok: true }" classname="api\all-endpoints.spec.ts" time="0.047">
+</testcase>
+<testcase name="@regression API — /api/waste-types › plasterboard with option returns { ok: true }" classname="api\all-endpoints.spec.ts" time="0.02">
+</testcase>
+<testcase name="@regression API — /api/waste-types › plasterboard without option returns 400" classname="api\all-endpoints.spec.ts" time="0.019">
+</testcase>
+<testcase name="@regression API — /api/waste-types › missing required fields returns 400" classname="api\all-endpoints.spec.ts" time="0.014">
+</testcase>
+<testcase name="@regression API — /api/skips › heavyWaste=false returns 8 enabled skips" classname="api\all-endpoints.spec.ts" time="0.038">
+</testcase>
+<testcase name="@regression API — /api/skips › heavyWaste=true returns 3 disabled skips (12/14/16-yard)" classname="api\all-endpoints.spec.ts" time="0.032">
+</testcase>
+<testcase name="@regression API — /api/skips › skip schema has required fields" classname="api\all-endpoints.spec.ts" time="0.012">
+</testcase>
+<testcase name="@regression API — /api/skips › missing heavyWaste param returns 400" classname="api\all-endpoints.spec.ts" time="0.013">
+</testcase>
+<testcase name="@regression API — /api/booking/confirm › valid request returns success with BK- bookingId" classname="api\all-endpoints.spec.ts" time="0.052">
+</testcase>
+<testcase name="@regression API — /api/booking/confirm › missing required field returns 400" classname="api\all-endpoints.spec.ts" time="0.016">
+</testcase>
+<testcase name="@regression API — /api/booking/confirm › two rapid POSTs both return unique bookingIds" classname="api\all-endpoints.spec.ts" time="0.025">
+</testcase>
+</testsuite>
+<testsuite name="e2e\edge-cases.spec.ts" timestamp="2026-04-16T21:03:59.459Z" hostname="chromium" tests="12" failures="0" skipped="0" time="12.286" errors="0">
+<testcase name="@regression empty postcode shows &quot;Please enter a postcode&quot;" classname="e2e\edge-cases.spec.ts" time="1.341">
+</testcase>
+<testcase name="@regression invalid postcode format shows validation error" classname="e2e\edge-cases.spec.ts" time="0.772">
+</testcase>
+<testcase name="@regression XSS input is rejected with validation error" classname="e2e\edge-cases.spec.ts" time="0.751">
+</testcase>
+<testcase name="@regression SQL injection input is rejected with validation error" classname="e2e\edge-cases.spec.ts" time="0.775">
+</testcase>
+<testcase name="@regression EC1A 1BB shows no-addresses empty state" classname="e2e\edge-cases.spec.ts" time="0.816">
+</testcase>
+<testcase name="@regression API error shows error message and retry button" classname="e2e\edge-cases.spec.ts" time="0.882">
+</testcase>
+<testcase name="@regression plasterboard without option keeps Continue disabled" classname="e2e\edge-cases.spec.ts" time="1.09">
+</testcase>
+<testcase name="@regression back navigation preserves selections" classname="e2e\edge-cases.spec.ts" time="1.131">
+</testcase>
+<testcase name="@regression double-submit prevention — only one POST fires" classname="e2e\edge-cases.spec.ts" time="2.057">
+</testcase>
+<testcase name="@regression browser back button — app recovers gracefully" classname="e2e\edge-cases.spec.ts" time="1.041">
+</testcase>
+<testcase name="@regression mobile 375px — no horizontal overflow on Step 1" classname="e2e\edge-cases.spec.ts" time="0.587">
+</testcase>
+<testcase name="@regression mobile 375px — no horizontal overflow on Step 3 (skip grid)" classname="e2e\edge-cases.spec.ts" time="1.043">
+</testcase>
+</testsuite>
+<testsuite name="e2e\general-waste-flow.spec.ts" timestamp="2026-04-16T21:03:59.459Z" hostname="chromium" tests="1" failures="0" skipped="0" time="1.283" errors="0">
+<testcase name="@smoke — complete general waste booking flow" classname="e2e\general-waste-flow.spec.ts" time="1.283">
+</testcase>
+</testsuite>
+<testsuite name="e2e\heavy-waste-flow.spec.ts" timestamp="2026-04-16T21:03:59.459Z" hostname="chromium" tests="1" failures="0" skipped="0" time="1.272" errors="0">
+<testcase name="@smoke — heavy waste booking with disabled skip verification" classname="e2e\heavy-waste-flow.spec.ts" time="1.272">
+</testcase>
+</testsuite>
+</testsuites>
