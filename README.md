@@ -4,15 +4,15 @@ A full-stack multi-step booking platform for REM Waste, a UK waste management co
 
 ## Live Demo
 
-**[https://rem-waste-qa.vercel.app](https://rem-waste-qa.vercel.app)** *(replace with your Vercel URL after deployment)*
+**[https://rem-waste-qa-seven.vercel.app/booking](https://rem-waste-qa-seven.vercel.app/booking)**
 
 ## GitHub Repository
 
-**[https://github.com/your-username/rem-waste-qa](https://github.com/your-username/rem-waste-qa)** *(replace with your repo URL)*
+**[https://github.com/subbotin-es/rem-waste-qa](https://github.com/subbotin-es/rem-waste-qa)**
 
 ## Project Documentation Library
 
-**[https://your-portfolio.com/rem-waste](https://your-portfolio.com/rem-waste)** *(replace with your portfolio site URL)*
+**[https://subbotin.es/PorfolioProjects/REMWaste/rem-waste-project-library.html#docs](https://subbotin.es/PorfolioProjects/REMWaste/rem-waste-project-library.html#docs)**
 
 ---
 
